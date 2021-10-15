@@ -51,13 +51,9 @@ public class ClinicalHistoryController {
 
         List<ClinicalHistory> cliHisList = serviceClinicaHistory.searchAll();
 		
-        if(cliHisList.size() > 0) {
-        	
-        	return cliHisList.stream()
-                .map(ClinicalHistory -> modelMapper
-                .map(ClinicalHistory, ClinicalHistoryDTO.class))
-                .collect(Collectors.toList());
-        }        
-        throw new NotFoundException("No se encontro ninguna historia clinica.");        
+        return cliHisList.stream()
+            .map(ClinicalHistory -> modelMapper
+            .map(ClinicalHistory, ClinicalHistoryDTO.class))
+            .collect(Collectors.toList());       
 	}
 }

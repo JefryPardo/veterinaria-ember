@@ -41,16 +41,10 @@ public class MemberController {
 	public List<MemberDTO> searchAllMember() {
 
         List<Member> memberList = serviceMember.searchAll();
-        if(memberList.size() > 0) {
-
-        	return memberList.stream()
+        return memberList.stream()
                 .map(Member -> modelMapper
                 .map(Member, MemberDTO.class))
-                .collect(Collectors.toList());            
-        }else {
-           
-            throw new NotFoundException("No se encontro ningun usuario.");
-        }
+                .collect(Collectors.toList());  
 	}
 
     @GetMapping("/{id}")

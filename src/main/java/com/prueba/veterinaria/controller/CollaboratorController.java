@@ -43,16 +43,10 @@ public class CollaboratorController {
 	public List<CollaboratorDTO> searchAllCollaborator() {
 
         List<Collaborator> collaborators = serviceCollaborator.searchAll();
-        if(collaborators.size() > 0) {
-
-        	return collaborators.stream()
-                .map(Collaborator -> modelMapper
-                .map(Collaborator, CollaboratorDTO.class))
-                .collect(Collectors.toList());            
-        }else {
-           
-            throw new NotFoundException("No se encontro ningun colaborador.");
-        }
+        return collaborators.stream()
+            .map(Collaborator -> modelMapper
+            .map(Collaborator, CollaboratorDTO.class))
+            .collect(Collectors.toList()); 
 	}
 
     @GetMapping("/{id}")

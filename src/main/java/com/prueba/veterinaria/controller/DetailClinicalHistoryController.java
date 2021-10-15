@@ -41,16 +41,10 @@ public class DetailClinicalHistoryController {
 	public List<DetailClinicalHistoryDTO> searchAllDetail() {
 
         List<DetailClinicalHistory> detailList = serviceDetailsClinicalHistory.searchAll();
-        if(detailList.size() > 0) {
-
-        	return detailList.stream()
-                .map(DetailClinicalHistory -> modelMapper
-                .map(DetailClinicalHistory, DetailClinicalHistoryDTO.class))
-                .collect(Collectors.toList());            
-        }else {
-           
-            throw new NotFoundException("No se encontro ningun detalle en general de las historias clinicas.");
-        }
+        return detailList.stream()
+            .map(DetailClinicalHistory -> modelMapper
+            .map(DetailClinicalHistory, DetailClinicalHistoryDTO.class))
+            .collect(Collectors.toList()); 
 	}
 
     @GetMapping("/{id}")

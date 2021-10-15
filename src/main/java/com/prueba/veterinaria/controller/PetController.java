@@ -50,14 +50,10 @@ public class PetController {
 
         List<Pet> petList = servicePet.searchAll();
 		
-        if(petList.size() > 0) {
-        	
-        	return petList.stream()
-                .map(Pet -> modelMapper
-                .map(Pet, PetDTO.class))
-                .collect(Collectors.toList());
-        }        
-        throw new NotFoundException("No se encontro ninguna mascota.");        
+        return petList.stream()
+            .map(Pet -> modelMapper
+            .map(Pet, PetDTO.class))
+            .collect(Collectors.toList());        
 	}
 
     @DeleteMapping("/{id}")
