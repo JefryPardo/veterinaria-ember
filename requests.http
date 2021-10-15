@@ -1,0 +1,129 @@
+# member / usuarios 1
+
+###
+GET http://localhost:8080/member HTTP/1.1
+
+###
+POST http://localhost:8080/member HTTP/1.1
+Content-Type:  application/json
+
+{
+    "id": null,
+    "memberName": "Jose",
+    "memberLastName": "pantoja",
+    "documentCantegory": "CC",
+    "identificationDocument": 1107158600,
+    "memberState": "true",
+    "gender": 1
+}
+
+###
+DELETE  http://localhost:8080/member/ HTTP/1.1
+
+
+
+
+
+
+# pet / mascota 2
+
+###
+POST http://localhost:8080/pet HTTP/1.1
+Content-Type:  application/json
+
+{
+    "id": null,
+    "petName": "Misi",
+    "breed": "Pío",
+    "member": {
+        "id": 8
+    },    
+    "gender": "Female"
+}
+
+###
+GET http://localhost:8080/pet HTTP/1.1
+
+
+
+
+
+
+
+
+# clinical history / historia clinica 3
+
+
+###
+POST http://localhost:8080/CliHis HTTP/1.1
+Content-Type:  application/json
+
+# {
+#     "id": null,
+#     "pet": {
+#         "id": null
+#     },
+#     "creationDate": "Pardo"
+# }
+
+###
+GET http://localhost:8080/CliHis HTTP/1.1
+
+###
+DELETE  http://localhost:8080/CliHis/7 HTTP/1.1
+
+
+
+# collaborator / colaborador 4
+
+
+###
+POST http://localhost:8080/collaborator HTTP/1.1
+Content-Type:  application/json
+
+{
+    "id": null,
+    "collaboratorName": "Jorge",
+    "collaboratorLastName": "Prado",
+    "collaboratorPosition": "Auxiliar",
+    "specialityArea": "Cirugia",
+    "documentCategory": "CC",
+    "identificationDocument": 1107102678
+}
+
+###
+GET http://localhost:8080/collaborator HTTP/1.1
+
+
+
+
+
+
+
+
+
+# Details clinical history // Detalles de la historia clinica
+###
+POST http://localhost:8080/detail HTTP/1.1
+Content-Type:  application/json
+
+{
+    "id": null,
+    "temperature": "48",
+    "weight": 28,
+    "cardiacFrequency": 15,
+    "breathingRate": 18,
+    "dateTime": "13/10/2021",
+    "feeding": 1107102678,
+    "habitat": "Casa campestre",
+    "comments": "Sobre peso",
+    "collaborator": {
+        "id": 1
+    },
+    "clinicalHistory": {
+        "id": 1
+    }
+}
+
+###
+GET http://localhost:8080/colladetailborator HTTP/1.1
