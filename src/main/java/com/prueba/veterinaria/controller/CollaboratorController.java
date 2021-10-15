@@ -62,6 +62,19 @@ public class CollaboratorController {
         } 
 	}
 
+    @GetMapping("/cc/{id}")
+	public Response findByCC(@Valid @PathVariable("id") int identificationDocument) {
+
+        Optional<Collaborator> collaborator = serviceCollaborator.searchByCC(identificationDocument);
+        if(collaborator.isPresent()) {
+
+            return new Response("No disponible.","La cedula no esta disponible: ","error");
+        }else{
+
+            return new Response("Disponible.","La cedula esta disponible: ","OK");
+        } 
+	}
+
     @DeleteMapping("/{id}")
 	public Response deleteById(@PathVariable("id") int collaborator_id) {
 

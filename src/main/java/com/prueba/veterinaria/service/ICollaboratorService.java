@@ -12,6 +12,7 @@ public interface ICollaboratorService {
     
     List<Collaborator> searchAll();
     Optional<Collaborator> searchById(int collaborator_id);
+    Optional<Collaborator> searchByCC(int identificationDocument);
     Collaborator saveCollaborator(@Valid Collaborator collaborator);
     Response delete(int collaborator_id);
 }

@@ -12,4 +12,5 @@ public interface IMemberService {
     Optional<Member> searchById(int member_id);
     Member saveMember(@Valid Member member);
     Response delete(int member_id);
+    Optional<Member> searchByCC(@Valid int identificationDocument);
 }

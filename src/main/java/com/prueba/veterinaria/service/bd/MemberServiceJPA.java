@@ -40,5 +40,11 @@ public class MemberServiceJPA implements IMemberService{
         } catch (Exception e) {
             return new Response("Sin exito","No se pudo borrar el usuario con id: "+member_id,"404 Not Found");                
         }
+    }
+
+    @Override
+    public Optional<Member> searchByCC(int identificationDocument) {
+        
+        return memberRepo.findByIdentificationDocument(identificationDocument);
     }    
 }

@@ -42,5 +42,11 @@ public class CollaboratorServiceJPA implements ICollaboratorService{
         } catch (Exception e) {
             return new Response("Sin exito","No se pudo borrar el colaborador con id: "+collaborator_id,"404 Not Found");                
         }
+    }
+
+    @Override
+    public Optional<Collaborator> searchByCC(int identificationDocument) {
+        
+        return collaboratorRepo.findByIdentificationDocument(identificationDocument);
     }    
 }

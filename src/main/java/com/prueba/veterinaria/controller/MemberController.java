@@ -60,6 +60,19 @@ public class MemberController {
         } 
 	}
 
+    @GetMapping("/cc/{id}")
+	public Response findByCC(@Valid @PathVariable("id") int identificationDocument) {
+
+        Optional<Member> member = serviceMember.searchByCC(identificationDocument);
+        if(member.isPresent()) {
+
+            return new Response("No disponible.","La cedula no esta disponible: ","error");
+        }else{
+
+            return new Response("Disponible.","La cedula esta disponible: ","OK");
+        } 
+	}
+
     @DeleteMapping("/{id}")
 	public Response deleteById(@PathVariable("id") int member_id) {
 
