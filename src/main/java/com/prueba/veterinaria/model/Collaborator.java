@@ -49,4 +49,7 @@ public class Collaborator {
     @NotNull(message = "# de identificación: No valido.")
     @Column(name = "identification_document")
     private int identificationDocument;
+
+    @NotNull(message = "estado: No valido.")
+    private int state;
 }

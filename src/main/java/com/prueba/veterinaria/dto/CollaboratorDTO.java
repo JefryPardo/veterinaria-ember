@@ -14,4 +14,5 @@ public class CollaboratorDTO {
     private String specialityArea;
     private String documentCategory;
     private int identificationDocument;
+    private int state;
 }
