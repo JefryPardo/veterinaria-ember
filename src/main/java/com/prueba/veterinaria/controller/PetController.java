@@ -39,10 +39,16 @@ public class PetController {
     }
 
     @GetMapping("/{id}")
-	public PetDTO findById(@PathVariable("id") int pet_id) {		
-		
+	public PetDTO findById(@PathVariable("id") int pet_id) {	
+
         Optional<Pet> pet = servicePet.searchById(pet_id);
-        return modelMapper.map(pet, PetDTO.class);
+        if(pet.isPresent()) {
+
+            return modelMapper.map(pet.get(), PetDTO.class);
+        }else{
+
+            throw new NotFoundException("No se encontro ningun usuario");
+        }
 	}
 
     @GetMapping()
