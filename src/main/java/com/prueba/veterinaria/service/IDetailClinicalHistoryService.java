@@ -12,4 +12,5 @@ public interface IDetailClinicalHistoryService {
     Optional<DetailClinicalHistory> searchById(int detail_clinical_history_id);
     DetailClinicalHistory saveDetailClinicalHistory(@Valid DetailClinicalHistory detail_clinical_history);
     Response delete(int detail_clinical_history_id);
+    List<DetailClinicalHistory> searchAllDetailClinicalHistoryByClinicalId(int clinical_history_id);
 }

@@ -44,5 +44,11 @@ public class DetailClinicalHistoryServiceJPA implements IDetailClinicalHistorySe
             return new Response("Sin exito","No se pudo borrar los detalles de la historia clinica con id: "+detail_clinical_history_id,"404 Not Found");                
         }
     }
+
+    @Override
+    public List<DetailClinicalHistory> searchAllDetailClinicalHistoryByClinicalId(int clinical_history_id) {
+        
+        return detailClinicalHistoryRepo.findByClinicalHistoryId(clinical_history_id);
+    }
     
 }

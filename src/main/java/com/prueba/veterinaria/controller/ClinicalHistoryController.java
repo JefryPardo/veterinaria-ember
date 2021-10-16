@@ -40,6 +40,16 @@ public class ClinicalHistoryController {
         } 
 	}
 
+    @GetMapping("/my/{id}")
+	public List<ClinicalHistoryDTO> findByPet(@Valid @PathVariable("id") int pet_id) {
+
+        List<ClinicalHistory> cliHisPet = serviceClinicaHistory.searchAllClinicalHistoryByPetId(pet_id);
+        return cliHisPet.stream()
+            .map(ClinicalHistory -> modelMapper
+            .map(ClinicalHistory, ClinicalHistoryDTO.class))
+            .collect(Collectors.toList()); 
+	}
+
     @DeleteMapping("/{id}")
 	public Response deleteById(@PathVariable("id") int clinical_history_id) {
 

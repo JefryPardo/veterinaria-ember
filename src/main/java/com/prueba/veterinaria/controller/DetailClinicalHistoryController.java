@@ -60,6 +60,16 @@ public class DetailClinicalHistoryController {
         } 
 	}
 
+    @GetMapping("/my/{id}")
+	public List<DetailClinicalHistoryDTO> findAllDetailsByClinical(@Valid @PathVariable("id") int clinical_history_id) {
+
+        List<DetailClinicalHistory> detailList = serviceDetailsClinicalHistory.searchAllDetailClinicalHistoryByClinicalId(clinical_history_id);
+        return detailList.stream()
+            .map(DetailClinicalHistory -> modelMapper
+            .map(DetailClinicalHistory, DetailClinicalHistoryDTO.class))
+            .collect(Collectors.toList());  
+	}
+
     @DeleteMapping("/{id}")
 	public Response deleteById(@PathVariable("id") int detail_id) {
 

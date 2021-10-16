@@ -12,4 +12,5 @@ public interface IClinicalHistoryService {
     ClinicalHistory saveClinicalHistory(@Valid ClinicalHistory clinical_history);
     Response delete(int clinical_history_id);
     List<ClinicalHistory> searchAll();
+    List<ClinicalHistory> searchAllClinicalHistoryByPetId(int pet_id);
 }
