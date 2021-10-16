@@ -51,6 +51,17 @@ public class PetController {
         }
 	}
 
+    @GetMapping("/my/{id}")
+	public List<PetDTO> findByAllPetsMemberID(@PathVariable("id") int member_id) {	
+
+        List<Pet> petList = servicePet.searchAllPets(member_id);
+		
+        return petList.stream()
+            .map(Pet -> modelMapper
+            .map(Pet, PetDTO.class))
+            .collect(Collectors.toList()); 
+	}
+
     @GetMapping()
 	public List<PetDTO> findAllPets() {		
 

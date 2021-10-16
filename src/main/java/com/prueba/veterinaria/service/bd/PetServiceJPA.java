@@ -42,5 +42,11 @@ public class PetServiceJPA implements IPetService{
             return new Response("Sin exito","No se pudo borrar la mascota con id: "+pet_id,"404 Not Found");                
         }
     }
+
+    @Override
+    public List<Pet> searchAllPets(int member_id) {
+        
+        return petRepo.findByMember(member_id);
+    }
     
 }

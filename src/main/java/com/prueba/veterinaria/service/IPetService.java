@@ -14,4 +14,5 @@ public interface IPetService {
     Optional<Pet> searchById(int pet_id);
     Pet savePet(@Valid Pet pet);
     Response delete(int pet_id);
+    List<Pet> searchAllPets(int member_id);
 }
