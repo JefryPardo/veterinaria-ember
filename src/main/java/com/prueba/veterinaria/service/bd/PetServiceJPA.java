@@ -46,7 +46,7 @@ public class PetServiceJPA implements IPetService{
     @Override
     public List<Pet> searchAllPets(int member_id) {
         
-        return petRepo.findByMember(member_id);
+        return petRepo.findByMemberId(member_id);
     }
     
 }

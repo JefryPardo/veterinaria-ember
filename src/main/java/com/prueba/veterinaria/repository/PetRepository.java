@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PetRepository extends JpaRepository<Pet,Integer>{
 
-    List<Pet> findByMember(int identificationDocument);
+    List<Pet> findByMemberId(int identificationDocument);
 }
