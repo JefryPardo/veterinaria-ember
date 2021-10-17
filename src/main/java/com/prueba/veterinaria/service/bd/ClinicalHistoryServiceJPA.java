@@ -45,7 +45,7 @@ public class ClinicalHistoryServiceJPA implements IClinicalHistoryService{
     }
 
     @Override
-    public List<ClinicalHistory> searchAllClinicalHistoryByPetId(int pet_id) {
+    public Optional<ClinicalHistory> searchClinicalHistoryByPetId(int pet_id) {
         
         return clinicalHistoryRepo.findByPetId(pet_id);
     }    

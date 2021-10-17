@@ -1,11 +1,11 @@
 package com.prueba.veterinaria.repository;
 
-import java.util.List;
+import java.util.Optional;
 
 import com.prueba.veterinaria.model.ClinicalHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClinicalHistoryRepository extends JpaRepository<ClinicalHistory,Integer>{
 
-    List<ClinicalHistory> findByPetId(int pet_id);
+    Optional<ClinicalHistory> findByPetId(int pet_id);
 }
